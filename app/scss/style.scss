@@ -1,5 +1,451 @@
-@import 'vars';
-@import 'fonts';
 @import 'reset';
+@import 'fonts';
+@import 'vars';
 @import 'global';
+
+
+.header{
+  padding: 60px 0;
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo{
+  transition: box-shadow 0.3s, border-radius 0.3s, opacity 0.3s;
+  &:focus {
+    box-shadow: 0 0 0 2px $focus;
+    border-radius: 5px;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+  &:active {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+}
+
+.menu{
+  &__list{
+    display: flex;
+    margin-right: 63px;
+  }
+  &__item:not(:last-child){
+    margin-right: 45px;
+  }
+  &__link{
+    transition: box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+    &:focus{
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+    &:hover{
+      color: $orange-900;
+    }
+    &:active{
+      color: $dark;
+      text-shadow: 2px 2px 5px $txtshadow;
+      box-shadow: none;
+    }
+    &--active{
+      color: $orange-900;
+    }
+  }
+}
+
+.users{
+  display: flex;
+  &__icon{
+    cursor: pointer;
+    padding: 22px;
+    border: none;
+    background-color: inherit;
+    width: 19px;
+    height: 19px;
+    display: block;
+    stroke: $darkBlue-900;
+    position: relative;
+    border-radius:5px;
+    transition: stroke 0.3s, background-color 0.3s;
+    &--img{
+      position: absolute;
+      top: 11px;
+      left: 11px;
+    }
+    &--num{
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      background-color: $orange-900;
+      top: 7px;
+      right: 4px;
+      border-radius: 50%;
+      font-size: 10px;
+      line-height: 150%;
+      color: $white;
+    }
+    &:hover{
+      stroke: $white;
+      background-color: $orange-900;
+    }
+    &:hover &--num{
+      background-color: $white;
+      color: $orange-900;
+    }
+    &:active{
+      background-color: $bgc;
+      border-radius: 5px;
+      stroke: $darkBlue-900;
+    }
+    &:active &--num{
+      color: $white;
+      background-color: $orange-900;
+    }
+    &:focus {
+      background-color: $bgc;
+      border-radius: 5px;
+      stroke: $darkBlue-900;
+      box-shadow: 0 0 0 2px $focus;
+      outline-color: $focus;
+    }
+  }
+  &__nav:not(:last-child){
+    margin-right: 10px;
+  }
+}
+
+.hero{
+  &__wrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 120px;
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 450px;
+  }
+  &__title{
+    @extend %Rubik-500;
+    font-size: 66px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: $darkBlue-900;
+    margin-bottom: 20px;
+  }
+  &__subtitle{
+    color: $orange-900;
+  }
+  &__text{
+    margin-bottom: 20px;
+  }
+  &__btn{
+    margin-right: 35px;
+  }
+  &__link{
+    border-bottom: 1px solid $darkBlue-900;
+    transition: border-bottom 0.3s, box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+    &:focus{
+      border-bottom: none;
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+    &:hover{
+      border-bottom: none;
+      box-shadow: none;
+      color: $orange-900;
+    }
+    &:active{
+      border-bottom: none;
+      color: $darkBlue-900;
+      box-shadow: none;
+      text-shadow: 2px 2px 5px $txtshadow;
+    }
+  }
+}
+
+.popular{
+  text-align: center;
+  margin-bottom: 120px;
+  &__title{
+    margin-bottom: 60px;
+  }
+  &__list{
+    display: flex;
+    margin-bottom: 45px;
+  }
+  &__filter:not(:last-child){
+    margin-right: 20px;
+  }
+  &__button{
+    padding: 13px 32px 17px;
+    background-color: $white;
+    box-shadow: 0 0 0 1px $silver-200;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    &--icon{
+      margin-right: 10px;
+    }
+    &--icon path{
+      fill: $darkBlue-900;
+    }
+    transition: box-shadow 0.3s, color 0.3s, background-color 0.3s, fill 0.3s;
+    &:focus{
+      outline-color: $focus;
+      box-shadow: 0 0 0 2px $focus;
+    }
+    &:hover{
+      color: $orange-900;
+      background-color: $bgch;
+      & path{
+          fill: $orange-900;
+      }
+    }
+    &:active{
+      box-shadow: inset 0 -5px 12px $bxshadow;
+    }
+  }
+  &__content{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 30px;
+    margin-bottom: 60px;
+  }
+  &__subtitle {
+    font-size: 15px;
+    line-height: 120%;
+    height: 40px;
+  }
+  &__price {
+    @extend %Rubik-500;
+    font-size: 15px;
+    line-height: 140%;
+    margin-top: 10px;
+  }
+  &__card {
+    max-width: 210px;
+    position: relative;
+    z-index: 0;
+  }
+  &__item-img {
+    margin: 0 auto;
+  }
+  &__card-inner {
+    text-align: center;
+    background-color: $white;
+    box-shadow: 0 0 0 1px $silver-200;
+    border-radius: 5px;
+    padding: 25px 15px 67px;
+    transition: box-shadow 0.3s;
+      &:hover {
+        box-shadow: 0 0 0 1px $orange-900;
+      }
+  }
+  &__link{
+    border-bottom: 1px solid $darkBlue-900;
+    transition: box-shadow 0.3s, border-radius 0.3s, outline-color 0.3s, border-bottom 0.3s, color 0.3s, text-shadow 0.3s;
+    &:focus{
+      box-shadow: 0 0 0 2px rgba(255, 122, 80, 0.7);
+      border-radius: 5px;
+      outline-color: $focus;
+    }
+    &:hover{
+      color: $orange-900;
+      border-bottom: none;
+    }
+    &:active{
+      text-shadow: 2px 2px 5px rgba(54, 56, 83, 0.5);
+      box-shadow: none;
+      color: $darkBlue-900;
+      border-bottom: none;
+    }
+  }
+}
+
+.mixitup-control-active{
+  color: $white;
+  background-color: $orange-900;
+  & path{
+    fill: $white;
+  }
+}
+
+.add__price{
+    position: absolute;
+    z-index: 1;
+    top: 240px;
+    left: 55px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    padding: 7px 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer{
+  &__top{
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(194, 194, 194, 0.2);
+  }
+  &__wrapper{
+    display: flex;
+  }
+  &__inner{
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin-right: 70px;
+  }
+  &__logo{
+    margin-bottom: 30px;
+  }
+  &__list{
+    column-count: 4;
+  }
+  &__item{
+    margin: 0 10px 20px 0;
+    font-size: 18px;
+    line-height: 130%;
+  }
+  &__link{
+    transition: box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+    &:focus {
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+  
+    &:hover {
+      color: $orange-900;
+      & path {
+        stroke: $orange-900;
+      }
+    }
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px $txtshadow;
+      box-shadow: none;
+    }
+  
+    &--active {
+      color: $orange-900;
+    }
+    &--icon{
+      vertical-align: middle;
+      margin-right: 7px;
+      & path{
+        stroke: $dark;
+      }
+    }
+  }
+  &__copy{
+    text-align: center;
+  }
+  &__copy-text{
+    padding: 30px 0;
+    font-size: 14px;
+    line-height: 100%;
+  }
+}
+
+.form{
+  &__input{
+    width: 100%;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    @extend %Rubik-400;
+    font-size: 14px;
+    line-height: 130%;
+    transition: color 0.3s, box-shadow 0.3s;
+    &::placeholder{
+      color: $gray;
+    }
+    &:focus{
+      box-shadow: 0 0 0 2px $orange-900;
+      outline-color: transparent;
+    }
+    &:hover::placeholder{
+      color: $darkBlue-900;
+    }
+  }
+  &__btn{
+    display: block;
+    padding: 13px 39px;
+    @extend %Rubik-500;
+    font-size: 14px;
+    line-height: 130%;
+    & svg{
+      margin-right: 14px;
+      vertical-align: text-bottom;
+    }
+    & path{
+      fill: $white;
+    }
+  }
+}
+
+.contacts{
+  display: flex;
+  &__link{
+    width: 39px;
+    height: 39px;
+    background-color: $gray;
+    border-radius: 50%;
+    text-align: center;
+    transition: box-shadow 0.3s, outline-color 0.3s, background-color 0.3s, fill 0.3s;
+    &:focus{
+      box-shadow: 0 0 0 2px $focus;
+      outline-color: $focus;
+      background-color: $bgc;
+    }
+    &:hover{
+      background-color: $orange-900;
+      & path{
+        fill: $white;
+      }
+    }
+    &:active{
+      background-color: $bgc;
+      & path{
+        fill: $orange-900;
+      }
+    }
+    &--icon{
+      vertical-align: bottom;
+    }
+    &--twitter {
+      vertical-align: sub;
+    }
+    & path{
+      fill: $dark;
+    }
+    &:not(:last-child){
+      margin-right: 13px;
+    }
+  }
+}
+
+
+
+
 @import 'media';
