@@ -1,0 +1,89 @@
+.restorant {
+  &__wrapper {
+    text-align: center;
+    margin-bottom: 120px;
+  }
+
+  &__title {
+    margin-bottom: 45px;
+    margin-left: -17px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  }
+
+  &__card {
+    background-color: $white;
+    max-width: 370px;
+    box-shadow: 0 3px 3px $black;
+    border-radius: 10px;
+    text-align: left;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: 0 3px 15px $shdw;
+    }
+  }
+
+  &__img {
+    margin-bottom: 15px;
+  }
+
+  &__name {
+    padding: 0 20px;
+    letter-spacing: -0.7px;
+    line-height: 140%;
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 130%;
+  }
+
+  &__link-icon {
+    padding: 5px 28px;
+    background-color: $orange-900;
+    border-radius: 20px;
+    line-height: 0;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px 20px;
+  }
+
+  &__time {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 167%;
+    opacity: 0.9;
+    letter-spacing: -0.5px;
+  }
+
+  &__icon {
+    width: 22px;
+    height: 22px;
+    fill: $white;
+
+    &--time {
+      vertical-align: top;
+      width: 24px;
+      height: 24px;
+      margin-right: 2px;
+      fill: $dark;
+    }
+  }
+
+
+
+
+
+
+}
