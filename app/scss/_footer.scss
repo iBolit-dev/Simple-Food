@@ -1,0 +1,221 @@
+.footer {
+  &__top {
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(194, 194, 194, 0.2);
+  }
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+    margin-right: 69px;
+  }
+
+  &__logo {
+    margin-bottom: 30px;
+  }
+
+  &__inner {
+    display: flex;
+  }
+
+  &__list {
+    column-count: 3;
+    max-width: 572px;
+    margin-right: 72px;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    min-width: 197px;
+
+    &--link {
+      transform: translateX(30px);
+      // если не так, то я не знаю как ещё сместить только центральную колонку правее, чтобы она на место стала. думал сделать на флексах, чтобы было 3 списка, но это было бы не через column-count.
+    }
+  }
+
+  &__link {
+    transition: box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+
+    &:hover {
+      color: $orange-900;
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px $txtshadow;
+      box-shadow: none;
+    }
+  }
+
+  &__contacts-list {
+    margin-bottom: 18px;
+  }
+
+  &__contacts-item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 200%;
+
+    &:not(:last-child) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__contacts-link {
+    transition: box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s, stroke 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+
+    &:hover {
+      color: $orange-900;
+
+      .footer__contacts-icon {
+        stroke: $orange-900;
+      }
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px $txtshadow;
+      box-shadow: none;
+
+      .footer__contacts-icon {
+        stroke: $dark;
+      }
+    }
+  }
+
+  &__contacts-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    fill: none;
+    stroke: $dark;
+    margin-right: 3px;
+  }
+
+  &__social {
+    display: flex;
+  }
+
+  &__social-item {
+    &:not(:last-child) {
+      margin-right: 14px;
+    }
+  }
+
+  &__social-link {
+    width: 39px;
+    height: 39px;
+    border-radius: 50%;
+    background-color: $silver-200;
+    display: block;
+    text-align: center;
+    transition: box-shadow 0.3s, background-color 0.3s, fill 0.3s;
+
+    &:focus {
+      box-shadow: 0 0 0 2px $focus;
+      background-color: $bgc;
+    }
+
+    &:hover {
+      background-color: $orange-900;
+
+      .footer__social-icon {
+        fill: $white;
+      }
+    }
+
+    &:active {
+      box-shadow: none;
+      background-color: $bgc;
+
+      .footer__social-icon {
+        fill: $orange-900;
+      }
+    }
+  }
+
+  &__social-icon {
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    fill: $dark;
+  }
+
+  &__copy {
+    text-align: center;
+  }
+
+  &__copy-text {
+    padding: 30px 0;
+    font-size: 14px;
+    line-height: 100%;
+  }
+}
+
+.form {
+  &__input {
+    width: 100%;
+    border: 1px solid $gray;
+    border-radius: 5px;
+    padding: 13px 15px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    line-height: 130%;
+    transition: color 0.3s, box-shadow 0.3s;
+
+    &::placeholder {
+      color: $gray;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+      outline-color: transparent;
+    }
+
+    &:hover::placeholder {
+      color: $darkBlue-900;
+    }
+  }
+
+  &__btn {
+    display: block;
+    padding: 13px 38px;
+    font-size: 14px;
+    line-height: 130%;
+
+    &:hover,
+    &:focus,
+    &:active {
+      .form__icons {
+        fill: $orange-900;
+      }
+    }
+  }
+
+  &__icons {
+    width: 17px;
+    height: 16px;
+    fill: $white;
+    vertical-align: middle;
+    margin-right: 4px;
+  }
+}

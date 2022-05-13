@@ -11,17 +11,4 @@ $txtshadow: rgba(49, 53, 43, 0.5);
 $bgch: rgba(255, 122, 80, 0.1);
 $bxshadow: rgba(255, 104, 56, 0.2);
 
-%Rubik-300 {
-  font-family: 'Rubik-Light', sans-serif;
-  font-weight: 300;
-}
-
-%Rubik-400 {
-  font-family: 'Rubik-Regular', sans-serif;
-  font-weight: 400;
-}
-
-%Rubik-500 {
-  font-family: 'Rubik-Medium', sans-serif;
-  font-weight: 500;
-}
+$Rubik: 'Rubik', Tahoma;

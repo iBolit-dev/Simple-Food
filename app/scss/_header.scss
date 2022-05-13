@@ -1,0 +1,145 @@
+.header {
+  padding: 60px 0;
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  margin-left: 5px;
+  // в фигме у логотипа отступ 5 пикселей от контейнера, если присмотреться
+  transition: box-shadow 0.3s, border-radius 0.3s, opacity 0.3s;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $focus;
+    border-radius: 5px;
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:active {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+}
+
+.menu {
+  &__list {
+    display: flex;
+    margin-right: 50px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 120%;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 45px;
+    }
+  }
+
+  &__link {
+    transition: box-shadow 0.3s, border-radius 0.3s, color 0.3s, text-shadow 0.3s;
+
+    &--active {
+      color: $orange-900;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $focus;
+      border-radius: 5px;
+    }
+
+    &:hover {
+      color: $orange-900;
+    }
+
+    &:active {
+      color: $dark;
+      text-shadow: 2px 2px 5px $txtshadow;
+      box-shadow: none;
+    }
+  }
+}
+
+.users {
+  display: flex;
+
+  &__button {
+    padding: 22px;
+    border: none;
+    width: 19px;
+    height: 19px;
+    display: block;
+    stroke: $darkBlue-900;
+    position: relative;
+    border-radius: 5px;
+    fill: transparent;
+    transition: stroke 0.3s, background-color 0.3s, color 0.3s;
+
+    &:hover {
+      stroke: $white;
+      background-color: $orange-900;
+
+      .users__number {
+        background-color: $white;
+        color: $orange-900;
+      }
+    }
+
+    &:active {
+      background-color: $bgc;
+      border-radius: 5px;
+      stroke: $darkBlue-900;
+
+      .users__number {
+        color: $white;
+        background-color: $orange-900;
+      }
+    }
+
+    &:focus {
+      background-color: $bgc;
+      border-radius: 5px;
+      stroke: $darkBlue-900;
+      box-shadow: 0 0 0 2px $focus;
+      outline-color: $focus;
+    }
+  }
+
+  &__number {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background-color: $orange-900;
+    top: 7px;
+    right: 4px;
+    border-radius: 50%;
+    font-size: 10px;
+    line-height: 150%;
+    color: $white;
+  }
+
+  &__nav:not(:last-child) {
+    margin-right: 10px;
+  }
+
+  &__icon {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 11px;
+    left: 11px;
+  }
+}
