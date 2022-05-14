@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Food</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.svg">
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -40,14 +41,14 @@
               </nav>
               <ul class="header__users users">
                 <li class="users__nav">
-                  <button class="users__button">
-                    <svg class="users__icon">
-                      <use xlink:href="images/sprite.svg#icon-search"></use>
-                    </svg>
+                  <form class="users__form" action="#">
                     <span class="sr-only">
                       поиск
                     </span>
-                  </button>
+                    <input class="users__form-input" type="search" placeholder="Поиск" required>
+                    <button class="users__form-button" type="submit">
+                    </button>
+                  </form>
                 </li>
                 <li class="users__nav">
                   <button class="users__button">
@@ -719,7 +720,7 @@
       </main>
     </div>
 
-    <!-- я в стилях использовал letter-spacing не по макету, чтобы подогнать под пиксельпервект -->
+    <!-- я в стилях использовал letter-spacing не по макету, чтобы подогнать под пиксельперфект -->
 
     <footer class="footer">
       <div class="footer__top">

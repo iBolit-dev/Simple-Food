@@ -75,6 +75,73 @@
 
 .users {
   display: flex;
+  position: relative;
+
+  &__form {
+    display: flex;
+    align-items: center;
+  }
+
+  &__form-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url(../images/icons/icon-search.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 19px;
+      height: 19px;
+      top: 11px;
+      left: 15px;
+      filter: invert(21%) sepia(22%) saturate(743%) hue-rotate(197deg) brightness(93%) contrast(93%);
+    }
+
+    &:hover {
+      background-color: $orange-900;
+
+      &.users__form-button::before {
+        filter: invert(100%) sepia(100%) saturate(17%) hue-rotate(262deg) brightness(105%) contrast(105%);
+      }
+    }
+  }
+
+  &__form-input {
+    border: 1px solid transparent;
+    background-color: transparent;
+    border-radius: 5px;
+    transition: all .5s;
+    position: relative;
+    font-size: 18px;
+    color: $dark;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    padding: 0;
+    font-weight: 300;
+
+
+    &::placeholder {
+      color: $gray;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    &:focus {
+      padding: 8px 2px 7px 40px;
+      width: 200px;
+      height: 38px;
+      font-size: 18px;
+      box-shadow: 0 0 0 $bxshadow;
+      outline: $focus;
+      border: 1px solid $orange-900;
+      background-color: $bgc;
+    }
+  }
 
   &__button {
     padding: 22px;
@@ -89,8 +156,11 @@
     transition: stroke 0.3s, background-color 0.3s, color 0.3s;
 
     &:hover {
-      stroke: $white;
       background-color: $orange-900;
+
+      .users__icon {
+        stroke: $white;
+      }
 
       .users__number {
         background-color: $white;
@@ -101,7 +171,10 @@
     &:active {
       background-color: $bgc;
       border-radius: 5px;
-      stroke: $darkBlue-900;
+
+      .users__icon{
+        stroke: $darkBlue-900;
+      }
 
       .users__number {
         color: $white;
@@ -141,5 +214,6 @@
     position: absolute;
     top: 11px;
     left: 11px;
+    stroke: $darkBlue-900;
   }
 }
