@@ -1,0 +1,195 @@
+// прежде чем начнёшь смотреть ЭТО сразу прости, я сам хуй знает что нахуевертил с этим слайдером, но всё работает 
+
+.testimonials {
+  text-align: center;
+  margin-bottom: 105px;
+
+  &__title {
+    margin-bottom: 5px;
+  }
+
+  &__inner {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    max-width: 990px;
+  }
+
+  &__clients {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-right: 80px;
+    // добавил здесь картинке размер, чтобы при использовании других фоток, большего размера, оно не ломалось
+  }
+}
+
+.blockquote {
+  text-align: left;
+  max-width: 570px;
+  padding-top: 5px;
+
+  &__text {
+    position: relative;
+    font-style: italic;
+    margin-bottom: 30px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-image: url('../images/sprite.svg#icon-blockquote1');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      top: 0;
+      left: -40px;
+      width: 24px;
+      height: 20px;
+      filter: invert(100%) sepia(0%) saturate(2610%) hue-rotate(29deg) brightness(80%) contrast(92%);
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      background-image: url('../images/sprite.svg#icon-blockquote2');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      bottom: 0;
+      right: -40px;
+      width: 24px;
+      height: 20px;
+      filter: invert(100%) sepia(0%) saturate(2610%) hue-rotate(29deg) brightness(80%) contrast(92%);
+    }
+  }
+
+  &__author {
+    font-style: normal;
+    line-height: 130%;
+  }
+
+  &__name {
+    color: $orange-900;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: -0.3px;
+  }
+}
+
+.slick-list {
+  margin-bottom: 48px;
+}
+
+.slick-dots {
+  display: flex;
+  justify-content: center;
+  transform: translateY(-27px);
+
+  .slick-active {
+    background-color: $orange-900;
+  }
+
+  li {
+    font-size: 0;
+    width: 15px;
+    height: 15px;
+    background-color: $gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: box-shadow 0.3s, background-color 0.3s;
+
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px $orange-900;
+    }
+
+    &:hover {
+      background-color: $bgc;
+      box-shadow: 0 0 0 2px $border;
+    }
+
+    &:active {
+      background-color: $border;
+    }
+  }
+}
+
+.slick-arrow {
+  font-size: 0;
+  width: 34px;
+  height: 34px;
+  border: 3px solid $gray;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s, filter 0.3s;
+
+  &:focus {
+    box-shadow: 0 0 0 2px $focus;
+    outline-color: transparent;
+  }
+
+  &:hover {
+    border-color: $border;
+    background-color: $bgc;
+
+    &::before {
+      filter: invert(98%) sepia(42%) saturate(3385%) hue-rotate(295deg) brightness(97%) contrast(106%);
+    }
+  }
+
+  &:active {
+    border-color: $bgc;
+    background-color: $bgc;
+    box-shadow: none;
+
+    &::before {
+      filter: invert(70%) sepia(73%) saturate(3354%) hue-rotate(326deg) brightness(100%) contrast(102%);
+    }
+  }
+}
+
+.slick-prev {
+  transform: translate(-273%, 1127%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../images/sprite.svg#icon-arrow_left');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    right: 5px;
+    width: 19px;
+    height: 11px;
+    filter: invert(97%) sepia(0%) saturate(235%) hue-rotate(174deg) brightness(84%) contrast(82%);
+  }
+}
+
+.slick-next {
+  transform: translate(270%, -9%);
+
+  &::before {
+    content: '';
+    position: absolute;
+    background-image: url('../images/sprite.svg#icon-arrow_right');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    right: 5px;
+    width: 19px;
+    height: 11px;
+    filter: invert(97%) sepia(0%) saturate(235%) hue-rotate(174deg) brightness(84%) contrast(82%);
+  }
+}

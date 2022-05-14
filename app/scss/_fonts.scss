@@ -16,6 +16,14 @@
 
 @font-face {
   font-family: 'Rubik';
+  font-style: italic;
+  src: url('../fonts/Rubik-Italic.woff2') format('woff2'),
+    url('../fonts/Rubik-Italic.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rubik';
   font-style: normal;
   src: url('../fonts/Rubik-SemiBold.woff2') format('woff2'),
     url('../fonts/Rubik-SemiBold.woff') format('woff');

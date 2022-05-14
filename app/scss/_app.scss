@@ -1,0 +1,77 @@
+.app {
+
+  &__wrapper {
+    position: relative;
+    margin-bottom: 160px;
+
+    &::before {
+      content: '';
+      background-image: url(../images/app.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      width: 570px;
+      height: 380px;
+      right: 0;
+    }
+  }
+
+  &__inner {
+    max-width: 540px;
+    padding: 40px 0;
+  }
+
+  &__title {
+    margin-bottom: 42px;
+    letter-spacing: 0.2px;
+    line-height: 140%;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+    margin-bottom: 30px;
+    letter-spacing: -0.6px;
+  }
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-right: 150px;
+    }
+  }
+
+  &__link {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 40px;
+    }
+
+    &--appstore {
+      &::before {
+        content: '';
+        background-image: url('../images/appstore.jpg');
+        width: 120px;
+      }
+    }
+
+    &--playmarket {
+      &::before {
+        content: '';
+        background-image: url('../images/playmarket.jpg');
+        width: 135px;
+      }
+    }
+  }
+}
