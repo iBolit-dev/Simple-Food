@@ -2,14 +2,18 @@
 
 .testimonials {
   text-align: center;
-  margin-bottom: 105px;
+  margin-bottom: 115px;
 
   &__title {
-    margin-bottom: 5px;
+    margin-bottom: 45px;
   }
 
+  // &__wrapper{
+  //   // margin-bottom: 60px;
+  // }
+
   &__inner {
-    margin: 0 auto;
+    margin: 0 auto 57px;
     display: flex;
     align-items: center;
     max-width: 990px;
@@ -82,114 +86,107 @@
   }
 }
 
-.slick-list {
-  margin-bottom: 48px;
-}
 
-.slick-dots {
-  display: flex;
-  justify-content: center;
-  transform: translateY(-27px);
 
-  .slick-active {
-    background-color: $orange-900;
+.swiper-pagination-bullet {
+  margin: 0 7px !important;
+  // important потому что я не знаю как перебить по специфичности, в css файле, который надо подключить для работы свайпера, там марджин меньше, перебить не получается, потому что там дохера классов, а писать айди или кучу классов не хочется.
+  width: 15px;
+  height: 15px;
+  background-color: $gray;
+  opacity: 1;
+  transition: opacity 0.3s;
+  border: 1px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s, outline-color 0.3s;
+
+  &:active {
+    background-color: $border;
   }
 
-  li {
-    font-size: 0;
-    width: 15px;
-    height: 15px;
-    background-color: $gray;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: box-shadow 0.3s, background-color 0.3s;
+  &:hover {
+    border-color: #FFA285;
+    background-color: $bgc;
+  }
 
-    &:not(:last-child) {
-      margin-right: 15px;
-    }
+  &:focus {
+    background-color: $gray;
+    outline-color: $orange-900;
+    border-color: $orange-900;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  background-color: $orange-900;
+}
+
+
+.swiper-button {
+  width: 239px;
+  height: 34px;
+  margin: 0 auto;
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  position: relative;
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 12px;
+    width: 34px;
+    height: 34px;
+    border: 3px solid $gray;
+    border-radius: 50%;
+    opacity: 1;
+    transition: outline-color 0.3s, border-color 0.3s, background-color 0.3s;
 
     &:focus {
-      box-shadow: 0 0 0 2px $orange-900;
+      outline-color: $orange-900;
+      border-color: $orange-900;
     }
 
     &:hover {
       background-color: $bgc;
-      box-shadow: 0 0 0 2px $border;
+      border-color: $border;
+      transition: filter 0.3s;
+
+      &::after {
+        filter: invert(72%) sepia(12%) saturate(1171%) hue-rotate(326deg) brightness(99%) contrast(113%);
+      }
     }
 
     &:active {
-      background-color: $border;
+      border-color: $bgc;
+      background-color: $bgc;
+      transition: filter 0.3s;
+
+      &::after {
+        filter: invert(63%) sepia(46%) saturate(3100%) hue-rotate(327deg) brightness(103%) contrast(101%);
+      }
     }
-  }
-}
 
-.slick-arrow {
-  font-size: 0;
-  width: 34px;
-  height: 34px;
-  border: 3px solid $gray;
-  border-radius: 50%;
-  position: relative;
-  z-index: 1;
-  transition: box-shadow 0.3s, border-color 0.3s, background-color 0.3s, filter 0.3s;
-
-  &:focus {
-    box-shadow: 0 0 0 2px $focus;
-    outline-color: transparent;
-  }
-
-  &:hover {
-    border-color: $border;
-    background-color: $bgc;
-
-    &::before {
-      filter: invert(98%) sepia(42%) saturate(3385%) hue-rotate(295deg) brightness(97%) contrast(106%);
+    &::after {
+      font-size: 0;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 11px;
+      height: 18px;
+      position: absolute;
+      filter: invert(78%) sepia(0%) saturate(2539%) hue-rotate(315deg) brightness(109%) contrast(77%);
     }
   }
 
-  &:active {
-    border-color: $bgc;
-    background-color: $bgc;
-    box-shadow: none;
-
-    &::before {
-      filter: invert(70%) sepia(73%) saturate(3354%) hue-rotate(326deg) brightness(100%) contrast(102%);
+  .swiper-button-prev {
+    &::after {
+      background-image: url('../images/sprite.svg#icon-arrow_left');
+      left: 7px;
     }
   }
-}
 
-.slick-prev {
-  transform: translate(-273%, 1127%);
-
-  &::before {
-    content: '';
-    position: absolute;
-    background-image: url('../images/sprite.svg#icon-arrow_left');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    top: 8px;
-    right: 5px;
-    width: 19px;
-    height: 11px;
-    filter: invert(97%) sepia(0%) saturate(235%) hue-rotate(174deg) brightness(84%) contrast(82%);
-  }
-}
-
-.slick-next {
-  transform: translate(270%, -9%);
-
-  &::before {
-    content: '';
-    position: absolute;
-    background-image: url('../images/sprite.svg#icon-arrow_right');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    top: 8px;
-    right: 5px;
-    width: 19px;
-    height: 11px;
-    filter: invert(97%) sepia(0%) saturate(235%) hue-rotate(174deg) brightness(84%) contrast(82%);
+  .swiper-button-next {
+    &::after {
+      background-image: url('../images/sprite.svg#icon-arrow_right');
+      right: 7px;
+    }
   }
 }

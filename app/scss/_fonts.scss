@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
+  font-weight: 300;
   src: url('../fonts/Rubik-Light.woff2') format('woff2'),
     url('../fonts/Rubik-Light.woff') format('woff');
   font-display: swap;
@@ -9,6 +10,7 @@
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
+  font-weight: 400;
   src: url('../fonts/Rubik-Regular.woff2') format('woff2'),
     url('../fonts/Rubik-Regular.woff') format('woff');
   font-display: swap;
@@ -17,6 +19,7 @@
 @font-face {
   font-family: 'Rubik';
   font-style: italic;
+  font-weight: 400;
   src: url('../fonts/Rubik-Italic.woff2') format('woff2'),
     url('../fonts/Rubik-Italic.woff') format('woff');
   font-display: swap;
@@ -25,6 +28,7 @@
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
+  font-weight: 600;
   src: url('../fonts/Rubik-SemiBold.woff2') format('woff2'),
     url('../fonts/Rubik-SemiBold.woff') format('woff');
   font-display: swap;
