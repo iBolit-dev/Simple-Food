@@ -1,11 +1,11 @@
 .features {
   &__wrapper {
     position: relative;
-    padding: 178px 0 186px;
+    padding: 15.2% 0 16.2%;
 
     &::before {
       content: '';
-      background-image: url(../images/delivery.png);
+      background-image: url(../images/features/delivery.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
@@ -28,7 +28,7 @@
     color: $darkBlue-900;
     margin-bottom: 30px;
     letter-spacing: 0.3px;
-    line-height: 132%;
+    line-height: 1.32;
   }
 
   &__subtitle {
@@ -36,50 +36,83 @@
   }
 
   &__text {
-    font-size: 20px;
-    line-height: 150%;
-    letter-spacing: -0.5px;
-    color: $dark;
     opacity: 0.9;
     margin-bottom: 30px;
   }
 
   &__list {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
   }
 
   &__item {
-    line-height: 165%;
-    &:not(:last-child) {
-      margin-bottom: 21px;
-    }
-  }
-
-  &__info {
     font-size: 24px;
     color: $darkBlue-900;
-    letter-spacing: -0.7px;
-  }
 
-  &__icon {
-    vertical-align: middle;
-    width: 34px;
-    height: 34px;
-    margin-right: 25px;
-
-    &--timer {
-      fill: $orange-900;
+    &:not(:last-child) {
+      margin-bottom: 13px;
     }
 
-    &--delivery {
-      fill: $blue;
-    }
-
-    &--resturent {
-      fill: $red;
+    &::before {
+      content: '';
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      transform: translateY(-7px);
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      margin-right: 24px;
     }
   }
-  &__link{
+
+  &__item--timer {
+    &::before {
+      background-image: url(../images/sprite.svg#icon-timer);
+      filter: invert(57%) sepia(28%) saturate(6295%) hue-rotate(337deg) brightness(101%) contrast(101%);
+    }
+    // поставил svg sprite потому что эти иконки я качал со стайлгайда, а там они чёрные, и чтобы поменять цвет поставил фильтр, как я понял, правильно будет иконки качать именнь со стайлгайда, а не с самого макета
+  }
+
+  &__item--delivery {
+    &::before {
+      background-image: url(../images/sprite.svg#icon-delivery);
+      filter: invert(47%) sepia(38%) saturate(2165%) hue-rotate(170deg) brightness(101%) contrast(103%);
+    }
+  }
+
+  &__item--resturent {
+    &::before {
+      background-image: url(../images/sprite.svg#icon-resturent);
+      filter: invert(49%) sepia(97%) saturate(7112%) hue-rotate(348deg) brightness(105%) contrast(104%);
+    }
+  }
+
+
+  // &__info {
+  //   font-size: 24px;
+  //   color: $darkBlue-900;
+  // }
+
+  // &__icon {
+  //   vertical-align: middle;
+  //   width: 34px;
+  //   height: 34px;
+  //   margin-right: 25px;
+
+  //   &--timer {
+  //     fill: $orange-900;
+  //   }
+
+  //   &--delivery {
+  //     fill: $blue;
+  //   }
+
+  //   &--resturent {
+  //     fill: $red;
+  //   }
+  // }
+  &__link {
     letter-spacing: 0;
   }
 }

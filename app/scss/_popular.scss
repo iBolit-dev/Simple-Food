@@ -2,6 +2,7 @@
   text-align: center;
 
   &__title {
+    letter-spacing: 0.2px;
     margin-bottom: 60px;
     color: $darkBlue-900;
   }
@@ -11,12 +12,14 @@
     margin-bottom: 45px;
   }
 
-  &__filter:not(:last-child) {
-    margin-right: 20px;
+  &__filter {
+    &:not(:last-child) {
+      margin-right: 21px;
+    }
   }
 
   &__button {
-    padding: 14px 30px;
+    padding: 14px 32px;
     background-color: $white;
     box-shadow: 0 0 0 1px $silver-200;
     border-radius: 5px;
@@ -55,7 +58,7 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 27px;
-    margin-bottom: 58px;
+    margin-bottom: 59px;
   }
 
   &__article {
@@ -84,7 +87,8 @@
 
   &__name {
     font-size: 14px;
-    line-height: 100%;
+    line-height: 1.1;
+    letter-spacing: 0.3px;
     margin-bottom: 17px;
   }
 
@@ -92,13 +96,13 @@
     display: block;
     font-weight: 600;
     font-size: 15px;
-    line-height: 140%;
+    line-height: 1.2;
     color: $darkBlue-900;
     margin-bottom: 10px;
   }
 
   &__add {
-    padding: 7px 16px;
+    padding: 5px 16px;
     font-size: 13px;
   }
 
