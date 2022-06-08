@@ -2,6 +2,22 @@
   &__wrapper {
     text-align: center;
     margin-bottom: 123px;
+
+    @media (max-width: 1200px) {
+      margin-bottom: 100px;
+    }
+
+    @media (max-width:992px) {
+      margin-bottom: 80px;
+    }
+
+    @media (max-width: 767px) {
+      margin-bottom: 60px;
+    }
+
+    @media (max-width: 576px) {
+      margin-bottom: 40px;
+    }
   }
 
   &__title {
@@ -10,10 +26,8 @@
     //ты в видео говорил, что отрицательный марджин это перебор и если font-weight будет правильный, то всё станет как надо, но всё равно без отрицательного марджина на место не становится, может быть из-за того, что на макете криво, хз хз. могу подвинуть через трансформ транслейт, но какая разница? Сейчас фонт-вейт правильный
   }
 
-  &__list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
+  &__img {
+    width: 100%;
   }
 
   &__link-icon {
@@ -38,8 +52,7 @@
       border-color: #FF9574;
       padding: 4px 7px 4px 45px;
 
-      // паддингом двигаю стрелку, чтобы она плавно ехала, если использовать трансформ транслейт, то она резко перепрыгивает, transition не помогает добавить плавности 
-
+      // паддингом двигаю стрелку, чтобы она плавно ехала, если использовать трансформ транслейт, то она резко перепрыгивает почему-то, transition не помогает добавить плавности, наверное не тому добавлял transition
 
       .restorant__icon {
         fill: $orange-900;
@@ -88,3 +101,38 @@
     fill: $white;
   }
 }
+
+.swiper-swipe {
+  height: 870px;
+  position: relative;
+  padding: 0 15px;
+  overflow: hidden;
+
+  @media (max-width:990px) {
+    height: 465px;
+  }
+}
+
+.swiper-wrapper__restorant {
+  @media (max-width:990px) {
+    height: 420px;
+  }
+}
+
+.swiper-swipe .swiper-slide__restorant {
+  height: calc((99% - 30px) / 2);
+  width: calc(290px + 80 * (100vw / 1905));
+  overflow: hidden;
+
+  @media (max-width:990px) {
+    height: 99%;
+  }
+}
+
+.swiper-swipe__card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+

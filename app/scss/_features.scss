@@ -1,7 +1,25 @@
 .features {
+  margin-bottom: 120px;
+
+  @media (max-width: 1200px) {
+    margin-bottom: 100px;
+  }
+
+  @media (max-width:992px) {
+    margin-bottom: 70px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 55px;
+  }
+
+  @media (max-width: 576px) {
+    margin-bottom: 40px;
+  }
+
   &__wrapper {
     position: relative;
-    padding: 15.2% 0 16.2%;
+    padding: 4.9% 0 9%;
 
     &::before {
       content: '';
@@ -12,9 +30,46 @@
       position: absolute;
       width: 440px;
       height: 585px;
-      top: 120px;
+      top: 0;
       left: 70px;
       z-index: -1;
+
+      @media(max-width:992px) {
+        opacity: 0.5;
+        transform: scale(0.9);
+      }
+
+      @media (max-width: 767px) {
+        opacity: 0.3;
+        top: -30px;
+      }
+
+      @media (max-width: 576px) {
+        opacity: 0.15;
+        transform: scale(0.85);
+        top: -47px;
+        left: -50px;
+      }
+
+      @media (max-width: 576px) {
+        transform: scale(0.55);
+        top: -50px px;
+        left: -70px;
+      }
+
+
+    }
+
+    @media(max-width:992px) {
+      padding: 11% 0 10%;
+    }
+
+    @media(max-width:767px) {
+      padding: 10% 0 15%;
+    }
+
+    @media(max-width:576px) {
+      padding: 11% 0 10%;
     }
   }
 
@@ -24,11 +79,11 @@
   }
 
   &__title {
-    font-size: 35px;
     color: $darkBlue-900;
     margin-bottom: 30px;
     letter-spacing: 0.3px;
     line-height: 1.32;
+    font-size: calc(21px + 14 * (100vw / 1905));
   }
 
   &__subtitle {
@@ -45,8 +100,8 @@
   }
 
   &__item {
-    font-size: 24px;
     color: $darkBlue-900;
+    font-size: calc(13px + 11 * (100vw / 1905));
 
     &:not(:last-child) {
       margin-bottom: 13px;
@@ -63,6 +118,10 @@
       display: inline-flex;
       align-items: center;
       margin-right: 24px;
+
+      @media (max-width:375px) {
+        margin-right: 10px;
+      }
     }
   }
 
@@ -71,6 +130,7 @@
       background-image: url(../images/sprite.svg#icon-timer);
       filter: invert(57%) sepia(28%) saturate(6295%) hue-rotate(337deg) brightness(101%) contrast(101%);
     }
+
     // поставил svg sprite потому что эти иконки я качал со стайлгайда, а там они чёрные, и чтобы поменять цвет поставил фильтр, как я понял, правильно будет иконки качать именнь со стайлгайда, а не с самого макета
   }
 
@@ -88,30 +148,6 @@
     }
   }
 
-
-  // &__info {
-  //   font-size: 24px;
-  //   color: $darkBlue-900;
-  // }
-
-  // &__icon {
-  //   vertical-align: middle;
-  //   width: 34px;
-  //   height: 34px;
-  //   margin-right: 25px;
-
-  //   &--timer {
-  //     fill: $orange-900;
-  //   }
-
-  //   &--delivery {
-  //     fill: $blue;
-  //   }
-
-  //   &--resturent {
-  //     fill: $red;
-  //   }
-  // }
   &__link {
     letter-spacing: 0;
   }

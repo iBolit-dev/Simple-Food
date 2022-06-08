@@ -1,6 +1,22 @@
 .app {
   margin-bottom: 160px;
 
+  @media (max-width: 1200px) {
+    margin-bottom: 140px;
+  }
+
+  @media (max-width:992px) {
+    margin-bottom: 120px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 576px) {
+    margin-bottom: 40px;
+  }
+
   &__wrapper {
     position: relative;
 
@@ -14,6 +30,22 @@
       width: 570px;
       height: 380px;
       right: 0;
+      z-index: -1;
+
+      @media (max-width:1200px) {
+        transform: scale(0.8);
+        right: -15px;
+      }
+
+      @media (max-width:992px) {
+        transform: scale(0.5);
+        right: -120px;
+      }
+
+      @media (max-width:767px) {
+        display: none;
+      }
+
     }
   }
 
@@ -26,6 +58,22 @@
     margin-bottom: 42px;
     letter-spacing: 0.2px;
     line-height: 1.4;
+
+    @media (max-width:1200px) {
+      margin-bottom: 38px;
+    }
+
+    @media (max-width:992px) {
+      margin-bottom: 32px;
+    }
+
+    @media (max-width:767px) {
+      margin-bottom: 26px;
+    }
+
+    @media (max-width:576px) {
+      margin-bottom: 15px;
+    }
   }
 
   &__text {
@@ -41,6 +89,7 @@
 
   &__item {
     width: 120px;
+
     &:not(:last-child) {
       margin-right: 30px;
     }

@@ -4,11 +4,19 @@
   text-align: center;
   margin-bottom: 113px;
 
-  &__title {
-    margin-bottom: 45px;
+  @media(max-width:992px) {
+    margin-bottom: 0;
   }
 
-  &__slick {
+  &__title {
+    margin-bottom: 45px;
+
+    @media (max-width: 576px) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__blockquote {
     position: relative;
 
     &::before {
@@ -18,8 +26,8 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      top: 30px;
-      left: 430px;
+      top: -2px;
+      left: -40px;
       width: 25px;
       height: 20px;
       filter: invert(100%) sepia(0%) saturate(2610%) hue-rotate(29deg) brightness(80%) contrast(92%);
@@ -32,8 +40,8 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      bottom: 175px;
-      right: 90px;
+      bottom: 90px;
+      right: -40px;
       width: 25px;
       height: 20px;
       filter: invert(100%) sepia(0%) saturate(2610%) hue-rotate(29deg) brightness(80%) contrast(92%);
@@ -45,11 +53,29 @@
     display: flex;
     align-items: center;
     max-width: 990px;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      justify-content: center;
+    }
   }
 
   &__clients {
     border-radius: 50%;
     margin-right: 80px;
+
+    @media (max-width: 767px) {
+      position: relative;
+      height: 200px;
+      width: 200px;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 576px) {
+      height: 100px;
+      width: 100px;
+    }
   }
 }
 
@@ -74,6 +100,15 @@
     margin-top: 15px;
     color: $dark;
     display: block;
+  }
+
+  @media (max-width: 992px) {
+    max-width: 405px;
+  }
+
+
+  @media (max-width: 576px) {
+    max-width: 265px;
   }
 }
 
@@ -119,6 +154,19 @@
   align-content: center;
   justify-content: space-between;
   position: relative;
+
+  @media (max-width:767px) {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    width: 400px;
+  }
+
+  @media (max-width:576px) {
+    top: 40px;
+    width: 240px;
+  }
 
   .swiper-button-prev,
   .swiper-button-next {

@@ -7,20 +7,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple Food</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.svg">
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
-<body>
+<body id="home">
   <div class="wrapper">
     <div class="content">
       <header class="header">
         <div class="container">
           <div class="header__wrapper">
-            <a class="logo" href="#">
+            <a class="logo" href="#home">
               <img class="logo__img" src="images/logo.svg" alt="logo" width="200" height="40">
             </a>
             <div class="header__inner">
               <nav class="header__menu menu">
+                <div class="menu__active-header">
+                  <a class="menu__active-logo" href="#home">
+                    <img class="logo__img" src="images/logo.svg" alt="logo" width="200" height="40">
+                  </a>
+                  <button class="close-btn">
+                    <svg class="close-btn__icon">
+                      <use xlink:href="images/sprite.svg#icon-close-btn"></use>
+                    </svg>
+                  </button>
+                </div>
                 <ul class="menu__list">
                   <li class="menu__item">
                     <a class="menu__link menu__link--active" href="#">
@@ -33,12 +44,75 @@
                     </a>
                   </li>
                   <li class="menu__item">
-                    <a class="menu__link" href="#">
+                    <a class="menu__link" href="#footer">
                       Контакты
                     </a>
                   </li>
                 </ul>
+                <address class="footer__contacts contacts">
+                  <ul class="footer__contacts-list">
+                    <li class="footer__contacts-item">
+                      <div class="footer__adress">
+                        <a class="footer__contacts-link" href="#">
+                          <svg class="footer__contacts-icon">
+                            <use xlink:href="images/sprite.svg#icon-location"></use>
+                          </svg>
+                          ул. Смирнова 2/3
+                        </a>
+                      </div>
+                    </li>
+                    <li class="footer__contacts-item">
+                      <a class="footer__contacts-link" href="tel:+79068057043">
+                        <svg class="footer__contacts-icon">
+                          <use xlink:href="images/sprite.svg#icon-calling"></use>
+                        </svg>
+                        79068057043
+                      </a>
+                    </li>
+                    <li class="footer__contacts-item">
+                      <a class="footer__contacts-link" href="mailto:support@sfood.com">
+                        <svg class="footer__contacts-icon">
+                          <use xlink:href="images/sprite.svg#icon-message"></use>
+                        </svg>
+                        support@sfood.com
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="footer__social">
+                    <li class="footer__social-item">
+                      <a class="footer__social-link" href="#">
+                        <svg class="footer__social-icon">
+                          <use xlink:href="images/sprite.svg#icon-facebook"></use>
+                        </svg>
+                        <span class="sr-only">
+                          Наш Фейсбук
+                        </span>
+                      </a>
+                    </li>
+                    <li class="footer__social-item">
+                      <a class="footer__social-link" href="#">
+                        <svg class="footer__social-icon">
+                          <use xlink:href="images/sprite.svg#icon-twitter"></use>
+                        </svg>
+                        <span class="sr-only">
+                          Наш Твиттер
+                        </span>
+                      </a>
+                    </li>
+                    <li class="footer__social-item">
+                      <a class="footer__social-link" href="#">
+                        <svg class="footer__social-icon">
+                          <use xlink:href="images/sprite.svg#icon-instagram"></use>
+                        </svg>
+                        <span class="sr-only">
+                          Наш Инстаграмм
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </address>
               </nav>
+
               <ul class="header__users users">
                 <li class="users__nav">
                   <button class="users__form-button" type="button">
@@ -47,6 +121,9 @@
                     <span class="sr-only">
                       поиск
                     </span>
+                    <button class="users__button-back" type="button">
+                      <img class="users__button-icon" src="images/arrow-left.svg" alt="Вернуться">
+                    </button>
                     <input class="users__form-input" type="search" placeholder="Поиск" required>
                     <button class="btn users__form-button--search" type="submit"> Найти </button>
                     <!-- здесь я знаю, что кнопке нужно указывать класс users__form-button а потом модификатор --search, но если я так делаю, из-за того, что у users__form-button на бефоре висит иконка, она появляется и на второй кнопке, поэтому так модификатор написал и стили применяются такие же как и в кнопках, которые в шапке, а я на неё вешаю стили, которые по макету дальше в кнопках ставятся -->
@@ -66,6 +143,13 @@
                     </span>
                   </button>
                 </li>
+                <button class="menu__burger-button">
+                  <svg class="menu__burger-icon">
+                    <use xlink:href="images/sprite.svg#burger">
+
+                    </use>
+                  </svg>
+                </button>
               </ul>
             </div>
           </div>
@@ -436,152 +520,155 @@
               <h2 class="restorant__title title">
                 Лучшие рестораны
               </h2>
-              <ul class="restorant__list">
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/blaze.jpg" alt="Пицца ресторана Blaze"
-                        width="370" height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        Blaze Pizza
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="11:00 - 22:00">
-                        11:00 - 22:00
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+              <div class="swiper-swipe">
+                <ul class="restorant__list swiper-wrapper swiper-wrapper__restorant">
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/blaze.jpg" alt="Пицца ресторана Blaze"
+                          width="370" height="300">
                       </a>
-                    </div>
-                  </article>
-                </li>
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/runcho.jpg" alt="Пицца ресторана Runcho"
-                        width="370" height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        Pizza Runcho
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="12:00 - 21:00">
-                        12:00 - 21:00
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          Blaze Pizza
+                        </h3>
                       </a>
-                    </div>
-                  </article>
-                </li>
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/hut.jpg" alt="Пицца ресторана Hut" width="370"
-                        height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        Pizza Hut
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="11:00 - 22:00">
-                        11:00 - 22:00
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="11:00 - 22:00">
+                          11:00 - 22:00
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/runcho.jpg" alt="Пицца ресторана Runcho"
+                          width="370" height="300">
                       </a>
-                    </div>
-                  </article>
-                </li>
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/mcdonalds.jpg" alt="бургер ресторана McDonald`s"
-                        width="370" height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        McDonald`s
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="06:00 - 23:00">
-                        06:00 - 23:00
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          Pizza Runcho
+                        </h3>
                       </a>
-                    </div>
-                  </article>
-                </li>
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/kfc.jpg" alt="бургер ресторана KFC" width="370"
-                        height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        KFC
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="06:00 - 23:30">
-                        06:00 - 23:30
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="12:00 - 21:00">
+                          12:00 - 21:00
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/hut.jpg" alt="Пицца ресторана Hut" width="370"
+                          height="300">
                       </a>
-                    </div>
-                  </article>
-                </li>
-                <li class="restorant__card card">
-                  <article class="restorant__article">
-                    <a class="card__link" href="#">
-                      <img class="restorant__img" src="images/restorant/star.jpg" alt="бургер ресторана Star Burgers"
-                        width="370" height="300">
-                    </a>
-                    <a class="card__link-subtitle" href="#">
-                      <h3 class="card__name">
-                        Star Burgers
-                      </h3>
-                    </a>
-                    <div class="restorant__inner">
-                      <time class="restorant__time" datetime="09:00 - 21:00">
-                        09:00 - 21:00
-                      </time>
-                      <a class="restorant__link-icon" href="#">
-                        <svg class="restorant__icon">
-                          <use xlink:href="images/sprite.svg#icon-arrow">
-                          </use>
-                        </svg>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          Pizza Hut
+                        </h3>
                       </a>
-                    </div>
-                  </article>
-                </li>
-              </ul>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="11:00 - 22:00">
+                          11:00 - 22:00
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/mcdonalds.jpg"
+                          alt="бургер ресторана McDonald`s" width="370" height="300">
+                      </a>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          McDonald`s
+                        </h3>
+                      </a>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="06:00 - 23:00">
+                          06:00 - 23:00
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/kfc.jpg" alt="бургер ресторана KFC"
+                          width="370" height="300">
+                      </a>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          KFC
+                        </h3>
+                      </a>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="06:00 - 23:30">
+                          06:00 - 23:30
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                  <li class="restorant__card card swiper-slide swiper-slide__restorant">
+                    <article class="restorant__article">
+                      <a class="card__link" href="#">
+                        <img class="restorant__img" src="images/restorant/star.jpg" alt="бургер ресторана Star Burgers"
+                          width="370" height="300">
+                      </a>
+                      <a class="card__link-subtitle" href="#">
+                        <h3 class="card__name">
+                          Star Burgers
+                        </h3>
+                      </a>
+                      <div class="restorant__inner">
+                        <time class="restorant__time" datetime="09:00 - 21:00">
+                          09:00 - 21:00
+                        </time>
+                        <a class="restorant__link-icon" href="#">
+                          <svg class="restorant__icon">
+                            <use xlink:href="images/sprite.svg#icon-arrow">
+                            </use>
+                          </svg>
+                        </a>
+                      </div>
+                    </article>
+                  </li>
+                </ul>
+                <div class="swiper-pagination swiper-swipe__card"></div>
+              </div>
             </div>
           </div>
         </section>
@@ -603,7 +690,6 @@
                       приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит
                       скидки
                       на доставку - однозначно рекомендую!
-
                       <cite class="blockquote__author">
                         Дарья
                         <span class="blockquote__description">
@@ -623,7 +709,6 @@
                       приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит
                       скидки
                       на доставку - однозначно рекомендую!
-
                       <cite class="blockquote__author">
                         Дарья
                         <span class="blockquote__description">
@@ -643,7 +728,6 @@
                       приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит
                       скидки
                       на доставку - однозначно рекомендую!
-
                       <cite class="blockquote__author">
                         Дарья
                         <span class="blockquote__description">
@@ -663,7 +747,6 @@
                       приложение. Их доставщики очень вежливы и пунктуальны. Компания часто проводит акции и дарит
                       скидки
                       на доставку - однозначно рекомендую!
-
                       <cite class="blockquote__author">
                         Дарья
                         <span class="blockquote__description">
@@ -683,7 +766,7 @@
           </div>
         </section>
 
-        <section class="app">
+         <section class="app">
           <div class="container">
             <div class="app__wrapper">
               <div class="app__inner">
@@ -719,12 +802,12 @@
     </div>
 
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
       <div class="footer__top">
         <div class="container">
           <div class="footer__wrapper">
             <div class="footer__content">
-              <a class="footer__logo logo" href="#">
+              <a class="footer__logo logo" href="#home">
                 <img class="logo__img" src="images/logo.svg" alt="logo" width="200" height="40">
               </a>
               <form class="footer__subscribe subscribe" action="#">
@@ -874,6 +957,7 @@
       </div>
     </footer>
   </div>
+  <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
 
