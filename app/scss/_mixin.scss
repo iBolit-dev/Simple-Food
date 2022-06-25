@@ -1,0 +1,121 @@
+@mixin line-clamp ($line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $line;
+  overflow: hidden;
+}
+
+// @mixin line-clamp($lines: 1) {
+//   @if $lines <=1 {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//   }
+
+//   @else {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     display: -webkit-box;
+//     -webkit-line-clamp: $lines;
+//     -webkit-box-orient: vertical;
+//   }
+// }
+
+// @mixin font-face($font-family, $url, $weight) {
+  // НЕ ИСПОЛЬЗОВАТЬ "-" В НАЗВАНИИ ШРИФТА
+  // ПРИМЕР ИСПОЛЬЗОВАНИЯ @include font-face(OpenSans, OpenSansRegular, 400)
+//   @font-face {
+//     font-family: "#{$font-family}";
+//     src: url('../fonts/#{$url}.woff2') format("woff2"),
+//     url('../fonts/#{$url}.woff') format("woff");
+//     font-weight: #{$weight};
+//     font-display: swap;
+//     font-style: normal;
+//   }
+// }
+
+@mixin checkbox-hidden {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  position: absolute;
+}
+
+@mixin size ($maxWidth, $maxHeight, $minWidth, $minHeight) {
+
+  $addWidth: $maxWidth - $minWidth;
+  $addHeight: $maxHeight - $minHeight;
+
+  width: calc(#{$minWidth + px} + #{$addWidth} * ((100vw - 375px) / (1905 - 375)));
+  height: calc(#{$minHeight + px} + #{$addHeight} * ((100vw - 375px) / (1905 - 375)));
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin media($width) {
+  @media (max-width: #{$width}px) {
+    @content;
+  }
+}
+
+@mixin fz($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width:767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 375px) / #{$maxWidth}));
+  }
+
+  @media (min-width:767px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+@mixin mb($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width:767px) {
+    margin-bottom: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 375px) / #{$maxWidth}));
+  }
+
+  @media (min-width:767px) {
+    margin-bottom: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+@mixin pb($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $addSize + $addSize * 0.7;
+
+  @media (max-width:767px) {
+    padding-bottom: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 375px) / #{$maxWidth}));
+  }
+
+  @media (min-width:767px) {
+    padding-bottom: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+  }
+}
+
+@mixin hl {
+  @media (max-height:575px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin hlm {
+  @media (max-height:374px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin hlxl {
+  @media (max-height:1000px) and (orientation: landscape) {
+    @content;
+  }
+}

@@ -6,12 +6,25 @@
     @media (max-width:992px) {
       padding-bottom: 30px;
     }
+
+    @media (max-width:576px){
+      padding-bottom: 15px;
+    }
   }
 
   &__wrapper {
     display: flex;
 
+    @media (max-width:1200px) {
+      justify-content: center;
+    }
+
     @media (max-width:992px) {
+      flex-wrap: wrap;
+      justify-content: start;
+    }
+
+    @media (max-width:576px) {
       flex-direction: column;
     }
   }
@@ -33,9 +46,12 @@
 
   &__inner {
     display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
-    @media (max-width:992px) {
+    @media (max-width:576px) {
       flex-direction: column-reverse;
+      align-items: start;
     }
   }
 
@@ -46,11 +62,17 @@
 
     @media (max-width: 1200px) {
       max-width: 440px;
-      margin-right: 70px;
+      margin-right: 00px;
+      column-count: 2;
     }
 
     @media (max-width:992px) {
       column-count: 1;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-right: 0px;
+      width: 70%;
     }
 
     // выставлять через column-gap не получится, нужно всё равно указывать width обязательно, потому что в третьем столбике текст переносится на 2 строки, и если выставлять первый и второй столбик по пиксельперфекту, без трансформа, то третий столбик всё равно через модификатор надо двигать левее, так что одно и то же получается, не вижу смысла менять 
@@ -67,7 +89,7 @@
   &__item--link {
     transform: translateX(30px);
 
-    @media (max-width:992px) {
+    @media (max-width:1200px) {
       transform: translateX(0);
     }
   }
@@ -155,6 +177,10 @@
   &__social-item {
     &:not(:last-child) {
       margin-right: 14px;
+
+      @media (max-width:576px){
+        margin-right: 11px;
+      }
     }
   }
 
@@ -213,7 +239,6 @@
 
   &__input {
     width: 198px;
-    // такая ширина, потому что бордер по 1 пиксею с каждой стороны и визульно немного видно, что форма ввода чуть больше 
     border: 1px solid $gray;
     border-radius: 5px;
     padding: 13px 15px;
@@ -262,4 +287,3 @@
     margin-right: 10px;
   }
 }
-

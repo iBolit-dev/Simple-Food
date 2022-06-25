@@ -1,33 +1,56 @@
 .restorant {
+  // margin-bottom: 123px;
+
+  // @media (max-width: 1200px) {
+  //   margin-bottom: 100px;
+  // }
+
+  // @media (max-width:992px) {
+  //   margin-bottom: 70px;
+  // }
+
+  // @media (max-width: 767px) {
+  //   margin-bottom: 55px;
+  // }
+
+  @media (max-width: 576px) {
+    // margin-bottom: 40px;
+
+    .container {
+      padding: 0;
+    }
+  }
+
+  &__list {
+    justify-content: space-between;
+  }
+
   &__wrapper {
     text-align: center;
-    margin-bottom: 123px;
-
-    @media (max-width: 1200px) {
-      margin-bottom: 100px;
-    }
-
-    @media (max-width:992px) {
-      margin-bottom: 80px;
-    }
-
-    @media (max-width: 767px) {
-      margin-bottom: 60px;
-    }
-
-    @media (max-width: 576px) {
-      margin-bottom: 40px;
-    }
   }
 
   &__title {
     margin-bottom: 45px;
     margin-left: -17px;
-    //ты в видео говорил, что отрицательный марджин это перебор и если font-weight будет правильный, то всё станет как надо, но всё равно без отрицательного марджина на место не становится, может быть из-за того, что на макете криво, хз хз. могу подвинуть через трансформ транслейт, но какая разница? Сейчас фонт-вейт правильный
+
+    @media(max-width:576px) {
+      margin-bottom: 30px;
+      margin-left: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    @include hl {
+      margin-bottom: 20px;
+    }
   }
 
   &__img {
-    width: 100%;
+    object-fit: cover;
+    margin: 0 auto;
+
+    @include hl {
+      height: 200px;
+    }
   }
 
   &__link-icon {
@@ -36,7 +59,11 @@
     border-radius: 20px;
     line-height: 0;
     border: 2px solid transparent;
-    transition: border-color 0.4s, background-color 0.4s, fill 0.4s, padding 0.4s;
+    transition: border-color 0.4s, background-color 0.4s, fill 0.4s;
+
+    .restorant__icon {
+      transition: transform 0.3s;
+    }
 
     &:focus {
       border-color: #FF9574;
@@ -50,12 +77,10 @@
     &:hover {
       background-color: $white;
       border-color: #FF9574;
-      padding: 4px 7px 4px 45px;
-
-      // паддингом двигаю стрелку, чтобы она плавно ехала, если использовать трансформ транслейт, то она резко перепрыгивает почему-то, transition не помогает добавить плавности, наверное не тому добавлял transition
 
       .restorant__icon {
         fill: $orange-900;
+        transform: translateX(20px);
       }
     }
 
@@ -73,6 +98,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 20px 20px;
+
+    @include hl {
+      padding-bottom: 10px;
+    }
   }
 
   &__time {
@@ -103,29 +132,34 @@
 }
 
 .swiper-swipe {
-  height: 870px;
+  height: 900px;
   position: relative;
-  padding: 0 15px;
+  padding: 0 15px 5px;
   overflow: hidden;
 
   @media (max-width:990px) {
-    height: 465px;
+    height: 100%;
+    padding-bottom: 50px;
   }
 }
 
 .swiper-wrapper__restorant {
   @media (max-width:990px) {
-    height: 420px;
+    height: 100%;
   }
 }
 
 .swiper-swipe .swiper-slide__restorant {
-  height: calc((99% - 30px) / 2);
+  height: auto;
   width: calc(290px + 80 * (100vw / 1905));
   overflow: hidden;
 
   @media (max-width:990px) {
     height: 99%;
+  }
+
+  @media (max-width:630px) {
+    width: calc(100px + 80 * (100vw / 1905));
   }
 }
 
@@ -135,4 +169,14 @@
   justify-content: center;
 }
 
+.swiper-swipe .swiper-pagination-bullets.swiper-pagination-horizontal {
 
+  @media (max-width:576px) {
+    bottom: 5px;
+    left: 5px;
+  }
+
+  @include hl {
+    bottom: 20px;
+  }
+}

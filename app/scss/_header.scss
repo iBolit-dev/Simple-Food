@@ -17,7 +17,6 @@
     align-items: center;
   }
 
-
   @media(max-width:1200px) {
     .logo {
       &__img {
@@ -37,7 +36,7 @@
   @media(max-width:992px) {
 
     .menu {
-      position: absolute;
+      position: fixed;
       background-color: #fff;
       top: 0;
       right: 0;
@@ -151,14 +150,6 @@
       display: flex;
       justify-content: space-between;
 
-      .users__button-back {
-        width: 44px;
-        height: 44px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
       .users__button-icon {
         transform: scale(2);
       }
@@ -178,7 +169,7 @@
   }
 
   @media(max-width: 576px) {
-    padding: 25px 0;
+    padding: 25px 0 17px;
 
     .search-active {
       padding: 25px 15px;
@@ -186,6 +177,7 @@
 
     .logo {
       width: 160px;
+      margin-left: 0;
     }
   }
 
@@ -193,6 +185,10 @@
     .logo {
       width: 115px;
     }
+  }
+
+  @include hl {
+    padding: 20px 0;
   }
 }
 
@@ -267,7 +263,7 @@
 
 .users {
   display: flex;
-
+  align-items: center;
 
   &__form {
     display: flex;
@@ -303,8 +299,7 @@
     }
   }
 
-  &__form-button--search,
-  &__button-back {
+  &__form-button--search {
     width: 0;
     height: 0;
     line-height: 0;
@@ -386,6 +381,11 @@
       box-shadow: 0 0 0 2px $focus;
       outline-color: $focus;
     }
+
+    @media (max-width:576px) {
+      margin-right: 7px;
+      margin-top: 2px;
+    }
   }
 
   &__number {
@@ -404,6 +404,12 @@
   &__nav {
     &:not(:last-child) {
       display: flex;
+    }
+
+    &:nth-child(2) {
+      @include hl {
+        margin-right: 15px;
+      }
     }
   }
 

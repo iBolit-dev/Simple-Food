@@ -1,14 +1,52 @@
 $(function () {
 
+  $('.filter__price-input').ionRangeSlider({
+    type: "double",
+    onStart: function (data) {
+      $('.filter__price-from').text(data.from);
+      $('.filter__price-to').text(data.to);
+    },
+    onChange: function (data) {
+      $('.filter__price-from').text(data.from);
+      $('.filter__price-to').text(data.to);
+    },
+  });
+
+  $('.select-style').styler();
+
+  let button = document.querySelector('.users__form-button');
+  let user = document.querySelector('.users__form');
+
+  const toggleSearch = () => {
+    user.classList.toggle('search-active');
+  }
+
+  button.addEventListener('click', e => {
+    e.stopPropagation();
+
+    toggleSearch();
+  });
+
+  document.addEventListener('click', e => {
+    let target = e.target;
+    let its_users = target == user || user.contains(target);
+    let its_button = target == button;
+    let users_is_active = user.classList.contains('search-active');
+
+    if (!its_users && !its_button && users_is_active) {
+      toggleSearch();
+    }
+  })
+
 
   $('.menu__active-logo, .close-btn, .menu__link, .footer__contacts-link, .footer__social-link').on('click', function () {
     $('#home').removeClass('lock'),
-      $('.menu').removeClass('menu__active')
+      $('.menu').removeClass('menu__active'),
+      $('.filter').removeClass('filter__active')
   });
 
-  $('.users__button-back').on('click', function () {
-    $('.users__form').removeClass('search-active')
-  });
+
+
 
 
 
@@ -51,6 +89,34 @@ $(function () {
 
   var mixer = mixitup('.popular__content');
 
+  var mySwiper = new Swiper('.swiper-swipe', {
+    pagination: {
+      el: '.swiper-swipe__card',
+      clickable: true,
+    },
+
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        grid: {
+          rows: 1,
+        },
+      },
+      630: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        grid: {
+          rows: 2,
+        },
+      }
+    },
+  });
+
 
 
   var mySwiper = new Swiper('.swiper', {
@@ -82,63 +148,56 @@ $(function () {
       nextEl: '.swiper-button-next',
     }
   });
-});
 
-
-$(function () {
-
-  var mySwiper = new Swiper('.swiper-swipe', {
+  var mySwiper = new Swiper('.discount__swiper', {
     pagination: {
-      el: '.swiper-swipe__card',
+      el: '.swiper-pagination__catalog',
       clickable: true,
     },
 
     breakpoints: {
       320: {
         slidesPerView: 1,
-        spaceBetween: 20,
-        grid: {
-          rows: 1,
-        },
+        spaceBetween: 20
       },
-      480: {
+      630: {
         slidesPerView: 2,
         spaceBetween: 20,
       },
       992: {
         slidesPerView: 3,
         spaceBetween: 30,
-        grid: {
-          rows: 2,
-        },
       }
-    },
+    }
   });
 
-  // я чисто случайно нашёл как сделать это меню поиска, чтобы работало как надо, просто подставил свои классы, с тем, что ты мне кидал, у меня не получилось сделать, если тебе не сложно объясни плиз, что я здесь прописал и что за что отвечает, потому что я сам вообще хз, кроме строки classList.toggle, как я понимаю, это то же самое, что и toggleClass только написано на чистом js  
 
 
-  let btn = document.querySelector('.users__form-button');
-  let users = document.querySelector('.users__form');
+  let settings = document.querySelector('.catalog__setting');
+  let filter = document.querySelector('.filter');
+  let home = document.querySelector('#home');
 
-  const toggleMenu = () => {
-    users.classList.toggle('search-active');
+  const toggleFilter = () => {
+    filter.classList.toggle('filter__active');
+    home.classList.toggle('lock');
   }
 
-  btn.addEventListener('click', e => {
+  settings.addEventListener('click', e => {
     e.stopPropagation();
 
-    toggleMenu();
+    toggleFilter();
   });
 
   document.addEventListener('click', e => {
     let target = e.target;
-    let its_users = target == users || users.contains(target);
-    let its_btn = target == btn;
-    let users_is_active = users.classList.contains('search-active');
+    let its_filter = target == filter || filter.contains(target);
+    let its_settings = target == settings;
+    let filter_is_active = filter.classList.contains('filter__active');
 
-    if (!its_users && !its_btn && users_is_active) {
-      toggleMenu();
+    if (!its_filter && !its_settings && filter_is_active) {
+      toggleFilter();
     }
-  })
+  });
+
+
 });

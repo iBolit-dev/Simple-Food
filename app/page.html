@@ -16,13 +16,13 @@
       <header class="header">
         <div class="container">
           <div class="header__wrapper">
-            <a class="logo" href="#home">
+            <a class="logo" href="#">
               <img class="logo__img" src="images/logo.svg" alt="logo" width="200" height="40">
             </a>
             <div class="header__inner">
               <nav class="header__menu menu">
                 <div class="menu__active-header">
-                  <a class="menu__active-logo" href="#home">
+                  <a class="menu__active-logo" href="#">
                     <img class="logo__img" src="images/logo.svg" alt="logo" width="200" height="40">
                   </a>
                   <button class="close-btn">
@@ -117,20 +117,15 @@
                   <button class="users__form-button" type="button">
                   </button>
                   <form class="users__form" action="#">
-                    <span class="sr-only">
+                    <label class="sr-only">
                       поиск
-                    </span>
-                    <button class="users__button-back" type="button">
-                      <img class="users__button-icon" src="images/arrow-left.svg" alt="Вернуться">
-                    </button>
+                    </label>
                     <input class="users__form-input" type="search" placeholder="Поиск" required>
                     <button class="btn users__form-button--search" type="submit"> Найти </button>
-                    <!-- здесь я знаю, что кнопке нужно указывать класс users__form-button а потом модификатор --search, но если я так делаю, из-за того, что у users__form-button на бефоре висит иконка, она появляется и на второй кнопке, поэтому так модификатор написал и стили применяются такие же как и в кнопках, которые в шапке, а я на неё вешаю стили, которые по макету дальше в кнопках ставятся -->
                   </form>
                 </li>
                 <li class="users__nav">
-                  <button class="users__button">
-                    <!-- честно тебе сказать, мне впадлу переделывать эту кнопку, и вешать саму иконку на бефор, но я понял, в другой раз, когда буду делать, то буду одинаково вешать, либо на бефор, либо через тег свг -->
+                  <button class="users__button" type="button">
                     <svg class="users__icon">
                       <use xlink:href="images/sprite.svg#icon-cart"></use>
                     </svg>
@@ -155,11 +150,34 @@
         </div>
       </header>
 
-       <main class="main">
+      <main class="main">
         <h1 class="sr-only">
           фаст-фуд ресторан Simple food
         </h1>
+        <section class="top">
+          <h2 class="sr-only">
+            Навигация по сайту
+          </h2>
+          <div class="top__container">
+            <div class="container">
+              <div class="breadcrumps">
+                <ul class="breadcrumps__list">
+                  <li class="breadcrumps__item">
+                    <a class="breadcrumps__link" href="#">
+                      Главная
+                    </a>
+                  </li>
+                  <li class="breadcrumps__item">
+                    <a class="breadcrumps__link" href="#">
+                      Каталог товаров
+                    </a>
+                  </li>
 
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
 
       </main>
     </div>

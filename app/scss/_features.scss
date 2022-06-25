@@ -1,25 +1,8 @@
 .features {
-  margin-bottom: 120px;
-
-  @media (max-width: 1200px) {
-    margin-bottom: 100px;
-  }
-
-  @media (max-width:992px) {
-    margin-bottom: 70px;
-  }
-
-  @media (max-width: 767px) {
-    margin-bottom: 55px;
-  }
-
-  @media (max-width: 576px) {
-    margin-bottom: 40px;
-  }
 
   &__wrapper {
     position: relative;
-    padding: 4.9% 0 9%;
+    padding: 4.9% 0;
 
     &::before {
       content: '';
@@ -28,54 +11,62 @@
       background-size: cover;
       background-position: center;
       position: absolute;
-      width: 440px;
-      height: 585px;
+      @include size(440, 585, 345, 462);
       top: 0;
       left: 70px;
       z-index: -1;
 
       @media(max-width:992px) {
         opacity: 0.5;
-        transform: scale(0.9);
       }
 
       @media (max-width: 767px) {
         opacity: 0.3;
-        top: -30px;
+        left: 0;
       }
 
       @media (max-width: 576px) {
         opacity: 0.15;
-        transform: scale(0.85);
-        top: -47px;
-        left: -50px;
       }
 
-      @media (max-width: 576px) {
-        transform: scale(0.55);
-        top: -50px px;
+      @include hl {
+        transform: scale(0.7);
         left: -70px;
+        top: -50px;
       }
 
-
+      @include hlm {
+        transform: scale(0.6);
+        left: auto;
+        right: 0;
+        top: -65px;
+      }
     }
 
     @media(max-width:992px) {
-      padding: 11% 0 10%;
-    }
-
-    @media(max-width:767px) {
-      padding: 10% 0 15%;
+      padding: 6% 0;
     }
 
     @media(max-width:576px) {
-      padding: 11% 0 10%;
+      padding: 14% 0;
+    }
+
+    @include hl {
+      padding: 2% 0 2%;
     }
   }
 
   &__content {
     max-width: 470px;
     margin: 0 70px 0 auto;
+
+    @media(max-width:576px) {
+      margin: 0 0 0 -2px;
+    }
+
+    @include hl {
+      margin-right: 0;
+    }
   }
 
   &__title {
@@ -83,7 +74,15 @@
     margin-bottom: 30px;
     letter-spacing: 0.3px;
     line-height: 1.32;
-    font-size: calc(21px + 14 * (100vw / 1905));
+    @include fz (36, 24);
+
+    @media (max-width:576px) {
+      letter-spacing: 0px;
+    }
+
+    @include hl {
+      margin-bottom: 10px;
+    }
   }
 
   &__subtitle {
@@ -93,18 +92,38 @@
   &__text {
     opacity: 0.9;
     margin-bottom: 30px;
+
+    @media (max-width:576px) {
+      margin-bottom: 35px;
+    }
+
+    @include hl {
+      margin-bottom: 15px;
+    }
   }
 
   &__list {
     margin-bottom: 32px;
+
+    @media(max-width:576px) {
+      margin-bottom: 20px;
+    }
+
+    @include hl {
+      margin-bottom: 20px;
+    }
   }
 
   &__item {
     color: $darkBlue-900;
-    font-size: calc(13px + 11 * (100vw / 1905));
+    @include fz (24, 18);
 
     &:not(:last-child) {
       margin-bottom: 13px;
+
+      @include hl {
+        margin-bottom: 8px;
+      }
     }
 
     &::before {
@@ -120,7 +139,7 @@
       margin-right: 24px;
 
       @media (max-width:375px) {
-        margin-right: 10px;
+        margin-right: 7px;
       }
     }
   }
@@ -130,8 +149,6 @@
       background-image: url(../images/sprite.svg#icon-timer);
       filter: invert(57%) sepia(28%) saturate(6295%) hue-rotate(337deg) brightness(101%) contrast(101%);
     }
-
-    // поставил svg sprite потому что эти иконки я качал со стайлгайда, а там они чёрные, и чтобы поменять цвет поставил фильтр, как я понял, правильно будет иконки качать именнь со стайлгайда, а не с самого макета
   }
 
   &__item--delivery {
