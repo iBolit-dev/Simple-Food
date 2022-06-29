@@ -116,6 +116,15 @@ body {
       background-repeat: no-repeat;
       background-position: right 2px;
     }
+
+    @include media(768) {
+      display: none;
+
+      &:first-child,
+      &:last-child {
+        display: block;
+      }
+    }
   }
 }
 
